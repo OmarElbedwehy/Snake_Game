@@ -3,7 +3,8 @@ let playBoard = document.querySelector(".play-board")
 let scoreEle = document.querySelector(".score")
 let highScoreEle = document.querySelector(".high-score")
 let controls = document.querySelectorAll(".controls i")
-
+let difficulty = document.querySelector("select")
+let alertEle = document.querySelector(".alert")
 
 let foodX, foodY;
 let snakeX = 5, snakeY = 10;
@@ -33,6 +34,9 @@ const changePosition = (e)=>{
         velocityY = 0;
         velocityX = 1;
     }
+    if (key === "ArrowUp" || key === "ArrowDown" || key === "ArrowRight" || key === "ArrowLeft"){
+        alertEle.innerHTML = ""
+    }
     Game()
 }
 
@@ -47,13 +51,17 @@ const changeFoodPosition = ()=>{
 
 const handleGameOver = ()=>{
     clearInterval(gameInterval)
-    alert("Game Over, Press Ok to replay...")
-    location.reload()
+    alertEle.classList.add("over")
+    alertEle.innerHTML = `Game Over, Press Ok to replay... <button class="btn">Ok</button>`
+    let ok = document.querySelector(".alert .btn")
+    ok.addEventListener("click", ()=>{
+        location.reload()
+    })
 }
 
 const Game = ()=>{
     if (gameOver) return handleGameOver();
-
+    
     let htmlMarkup = `<div class="food" style="grid-area: ${foodY} / ${foodX}"></div>`
 
     htmlMarkup += `<div class="snake" style="grid-area: ${snakeY} / ${snakeX}"></div>`
@@ -91,6 +99,23 @@ const Game = ()=>{
     highScoreEle.innerHTML = `High Score: ${high_score}`
 }
 
+const handleDifficulty = (e)=>{
+    const value = e.target.value;
+    if (value === "easy"){
+        gameInterval = setInterval(Game, 190)
+    }else if (value === "normal"){
+        gameInterval = setInterval(Game, 220)
+    }else if (value === "hard"){
+        gameInterval = setInterval(Game, 250)
+    }
+}
+
 changeFoodPosition();
-gameInterval = setInterval(Game, 125)
+
+gameInterval = setInterval(Game, 220)
+
 document.addEventListener("keydown", changePosition)
+
+difficulty.value = "normal"
+
+difficulty.addEventListener("change", handleDifficulty)
