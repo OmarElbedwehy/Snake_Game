@@ -64,6 +64,40 @@ body{
     border-right: 1px solid #171b26;
 }
 
+footer{
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    font-size: 0.90rem;
+    background-color: #293447;
+    color: #B8c6DC;
+    padding: 15px 20px;
+    border-radius: 10px;
+}
+
+footer a{
+    color: #B8c6DC;
+    text-decoration: none;
+    position: relative;
+}
+
+footer a::after{
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -5px;
+    background-color: #B8c6DC;
+    width: 0%;
+    height: 2px;
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+footer a:hover::after{
+    width: 100%;
+}
+
 @media screen and (max-width: 780px) {
     .wrrapper{
         width: 90vmin;
