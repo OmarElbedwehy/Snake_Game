@@ -9,17 +9,30 @@
     <title>Snake Game</title>
 </head>
 <body>
+    <p class="alert">Press Any Of Arrow Keys To Start Game</p>
     <div class="wrrapper">
         <div class="game-details">
             <p class="score">Score: 5</p>
+            <span class="difficulty">
+                Difficulty: 
+                <select>
+                    <option value="easy">Easy</option>
+                    <option value="normal">Normal</option>
+                    <option value="hard">Hard</option>
+                </select>
+            </span>
             <p class="high-score">High Score: 30</p>
         </div>
         <div class="play-board"></div>
         <div class="controls">
             <i data-key="ArrowLeft" class="fa-solid fa-arrow-left-long"></i>
-            <i data-key="ArrowUp" class="fa-solid fa-arrow-up-long"></i>
+            
+            <div>
+                <i data-key="ArrowUp" class="fa-solid fa-arrow-up-long"></i>
+                <i data-key="ArrowDown" class="fa-solid fa-arrow-down-long"></i>
+            </div>
             <i data-key="ArrowRight" class="fa-solid fa-arrow-right-long"></i>
-            <i data-key="ArrowDown" class="fa-solid fa-arrow-down-long"></i>
+            
         </div>
     </div>
     <footer>Developed By <a href="https://github.com/OmarElbedwehy" target="_blank">Omar Elbedwehy</a></footer>
