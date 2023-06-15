@@ -64,6 +64,34 @@ body{
     border-right: 1px solid #171b26;
 }
 
+.alert{
+    position: absolute;
+    top: 50px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.alert.over{
+    color: #FF003D;
+}
+
+.alert .btn{
+    background-color: #60CBFF;
+    color: #fff;
+    padding: 6px 15px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.alert .btn:hover{
+    opacity: 0.8;
+}
+
 footer{
     position: absolute;
     bottom: 15px;
@@ -101,15 +129,34 @@ footer a:hover::after{
 @media screen and (max-width: 780px) {
     .wrrapper{
         width: 90vmin;
-        height: 115vmin;
+        height: 130vmin;
     }
     .game-details{
         padding: 15px 27px;
     }
     .controls{
         display: flex;
+        align-items: center;
     }
     .controls i{
         padding: 15px 0;
+    }
+    .controls i{
+        border-left: 1px solid #171b26;
+    }
+    .controls div{
+        width: calc(100% / 2);
+    }
+    .controls div i{
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #171b26;
+    }
+    .difficulty{
+        position: absolute;
+        top: 122px;
+        left: 50%;
+        transform: translateX(-50%);
+        color: #000;
     }
 }
