@@ -81,6 +81,12 @@ const Game = ()=>{
         snakeBody.push([foodX, foodY])
         score++;
 
+        if(score > 5){
+            clearInterval(gameInterval)
+            difficulty.value = "normal"
+            gameInterval = setInterval(Game, 230)
+        }
+
         high_score = score >= high_score ? score : high_score;
 
         localStorage.setItem("high_score", high_score);
@@ -102,20 +108,21 @@ const Game = ()=>{
 const handleDifficulty = (e)=>{
     const value = e.target.value;
     if (value === "easy"){
-        gameInterval = setInterval(Game, 190)
+        clearInterval(gameInterval)
+        gameInterval = setInterval(Game, 330)
     }else if (value === "normal"){
-        gameInterval = setInterval(Game, 220)
+        clearInterval(gameInterval)
+        gameInterval = setInterval(Game, 230)
     }else if (value === "hard"){
-        gameInterval = setInterval(Game, 250)
+        clearInterval(gameInterval)
+        gameInterval = setInterval(Game, 150)
     }
 }
 
 changeFoodPosition();
 
-gameInterval = setInterval(Game, 220)
+gameInterval = setInterval(Game, 330)
 
 document.addEventListener("keydown", changePosition)
-
-difficulty.value = "normal"
 
 difficulty.addEventListener("change", handleDifficulty)
