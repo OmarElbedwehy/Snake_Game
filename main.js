@@ -81,7 +81,7 @@ const Game = ()=>{
         snakeBody.push([foodX, foodY])
         score++;
 
-        if(score > 5){
+        if(score > 7 && difficulty.value === "easy"){
             clearInterval(gameInterval)
             difficulty.value = "normal"
             gameInterval = setInterval(Game, 230)
