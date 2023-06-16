@@ -44,6 +44,7 @@ body{
 
 .play-board .food{
     background-color: #FF003D;
+    border-radius: 10px;
 }
 
 .play-board .snake{
